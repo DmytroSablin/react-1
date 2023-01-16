@@ -1,0 +1,25 @@
+.content {
+    grid-area: h;
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    grid-template-areas: 
+        "im txt";
+    border-radius: 30px;
+}
+
+.content img {
+    width: 50px;
+    border-radius: 50%;
+    grid-area: im;
+    border: 1px solid;
+    margin: auto 5px;
+}
+
+.content h1 {
+    grid-area: txt;
+    margin: auto;
+    text-transform: uppercase;
+    color: rgb(210, 153, 228);
+}
+
