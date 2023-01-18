@@ -1,18 +1,14 @@
 import React from "react";
-import classes from "./Navbar.module.css"
+import "./Navbar.css"
 import { NavLink } from 'react-router-dom'
 
 const Navbar = (props) => {
     return (
-        <div className={classes.content}>
-            <NavLink to="/profile" style={({ isActive }) => ({ 
-                            color: isActive ? 'greenyellow' : 'white' })}>Profile</NavLink>
-            <NavLink to="/messages" style={({ isActive }) => ({ 
-                            color: isActive ? 'greenyellow' : 'white' })}>Messages</NavLink>
-            <NavLink to="/news" style={({ isActive }) => ({ 
-                            color: isActive ? 'greenyellow' : 'white' })}>News</NavLink>
-            <NavLink to="/music" style={({ isActive }) => ({ 
-                            color: isActive ? 'greenyellow' : 'white' })}>Music</NavLink>
+        <div className="content">
+            <NavLink to="/profile" >Profile</NavLink>
+            <NavLink to="/dialogs" >Messages</NavLink>
+            <NavLink to="/news" >News</NavLink>
+            <NavLink to="/music" >Music</NavLink>
         </div>
     )
 }
