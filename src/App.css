@@ -8,7 +8,7 @@
 	  "n p";
 }
 
-.app-wrapper-route {
+.app-wrapper-content {
   grid-area: p;
   background-color: blueviolet;
   border-radius: 30px;

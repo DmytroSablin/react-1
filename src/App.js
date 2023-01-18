@@ -8,23 +8,23 @@ import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import React from "react";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className='app-wrapper'>
-        <Header />
-        <Navbar />
-        <div className="app-wrapper-route">
-          <Routes>
-            <Route path='/profile' element={<Profile />}></Route>
-            <Route path='/dialogs' element={<Dialogs />}></Route>
-            <Route path='/news' element={<News />}></Route>
-            <Route path='/music' element={<Music />}></Route>
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+function App(props) {
+	return (
+		<BrowserRouter>
+			<div className='app-wrapper'>
+				<Header />
+				<Navbar />
+				<div className="app-wrapper-content">
+					<Routes>
+						<Route path='/profile' element={<Profile pdata={props.pdata}/>}></Route>
+						<Route path='/dialogs' element={<Dialogs ddata={props.ddata} mdata={props.mdata}/>}></Route>
+						<Route path='/news' element={<News />}></Route>
+						<Route path='/music' element={<Music />}></Route>
+					</Routes>
+				</div>
+			</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;
