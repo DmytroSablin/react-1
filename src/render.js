@@ -1,13 +1,21 @@
 import React from 'react';
 import './index.css';
 import App from './App';
-import root from "./index";
 import {BrowserRouter} from "react-router-dom";
+import ReactDOM from "react-dom/client";
 
-export let rerenderEntireTree = (state, addPost) => {
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+export let rerenderEntireTree = (allprops) => {
 	root.render(<BrowserRouter>
 		<React.StrictMode>
-			<App state={state} addpost={addPost}/>
+			<App state={allprops.state}
+				 addpost={allprops.addPost}
+				 changepost={allprops.onChangePost}
+				 changemessage={allprops.onChangeMessage}
+				 addmessage={allprops.addMessage}
+				 Like={allprops.Like}
+			/>
 		</React.StrictMode>
 	</BrowserRouter>);
 }
