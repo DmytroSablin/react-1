@@ -11,7 +11,7 @@ const Profile = (props) => {
 				ava + disc
 			</div>
 			<div>
-				<MyPosts state={props.state}/>
+				<MyPosts addpost={props.addpost} state={props.state}/>
 			</div>
 		</div>)
 }

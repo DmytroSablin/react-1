@@ -15,6 +15,7 @@ const Dialogs = (props) => {
 
 	let alertmsg = () => {
 		alert(newMessage.current.value)
+		newMessage.current.value = null;
 	}
 
 	return (<div className={classes.dialogs}>
