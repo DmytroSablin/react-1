@@ -3,6 +3,7 @@
     background-color: blueviolet;
     border-radius: 30px;
     display: block;
+    height: 100%;
 }
 
 .content a {
@@ -54,3 +55,6 @@ a.active:hover {
     text-align: center;
 }
 
+body {
+
+}
