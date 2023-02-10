@@ -1,17 +1,18 @@
 import React from "react";
 import classes from "./Post.model.css"
+import { LikeActionCreator } from "../../../../redux/profile-reducer";
 
 const Post = (props) => {
     let likefunk = () => {
-        props.Like(props.id)
+        props.dispatch(LikeActionCreator(props.post.id))
     }
 
-    if (props.likes_num) {
+    if (props.post.likes_num) {
         return (
             <div>
             <span>
-                {props.message} ({props.likes_num} likes)
-                <button onClick={likefunk}>like</button>
+                {props.post.message} ({props.post.likes_num} likes)
+                <button className="like_button" onClick={likefunk}>like</button>
             </span>
             </div>
         )
@@ -20,8 +21,8 @@ const Post = (props) => {
         return (
             <div>
             <span>
-                {props.message}
-                <button onClick={likefunk}>like</button>
+                {props.post.message}
+                <button className="like_button" onClick={likefunk}>like</button>
             </span>
             </div>
         )

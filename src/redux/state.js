@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer"
+import dialogsReducer from "./dialog-reducer"
+
 let store = {
 	_state: {
 		profilePage: {
@@ -18,44 +21,13 @@ let store = {
 	},
 	_callSubscriber() {
 	},
-	addPost() {
-		let newPost = {
-			id: this._state.profilePage.postsData[0].id + 1,
-			message: this._state.profilePage.newPost,
-			likes_num: null
-		};
-		this._state.profilePage.postsData.unshift(newPost);
-		this._state.profilePage.newPost = ""
-		this._callSubscriber()
-	},
-	addMessage() {
-		let message = {
-			id:3,
-			text: this._state.messagesPage.newMessage,
-		}
-		this._state.messagesPage.messagesData.push(message)
-		this._state.messagesPage.newMessage = ""
-		this._callSubscriber()
-	},
-	onChangeMessage(msgtxtx) {
-		this._state.messagesPage.newMessage = msgtxtx
-		this._callSubscriber()
-	},
-	onChangePost(posttxt) {
-		this._state.profilePage.newPost = posttxt
-		this._callSubscriber()
-	},
-	Like(id) {
-		let indx = this._state.profilePage.postsData.map(pst => pst.id).indexOf(id)
-		this._state.profilePage.postsData[indx].likes_num += 1
-		this._callSubscriber()
-	},
 	subscribe(observer) {
 		this._callSubscriber = observer
 	},
 	dispatch(action) {
-
-	}
+		this._state.profilePage = profileReducer(this._state.profilePage, action)
+		this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
+		this._callSubscriber() }
 }
 
 export default store

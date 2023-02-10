@@ -5,13 +5,27 @@
     background-color: rgb(66, 0, 151);
     border-radius: 20px;
     color: white;
-    margin: 50px 0 ;
+    margin: 50px 0 20px 0;
 }
 
 .txtinputarea {
-    border:1px solid;
+    border: 0px solid;
     display: block;
     width: 600px;
     margin: 0 auto;
     height: 100px;
+    background-color: #aa5fa0;
+    border-radius: 30px;
+    
+}
+
+.postbutton {
+    display: block;
+    width: 600px;
+    margin: 30px auto;
+    height: 50px;
+    background-color: rgb(66, 0, 151);
+    color: white;
+    border-radius: 30px;
+
 }

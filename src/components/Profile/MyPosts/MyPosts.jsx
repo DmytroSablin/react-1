@@ -1,19 +1,20 @@
 import React from "react";
 import classes from "./MyPosts.module.css"
 import Post from "./Post/Post";
+import { AddPostActionCreator, ChangePostActionCreator } from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
 
 	let postsElements = props.state.postsData
-		.map(post => <Post id={post.id} message={post.message} Like={props.Like} likes_num={post.likes_num}/>)
+		.map(post => <Post dispatch={props.dispatch} post={post}/>)
 	let newPost = React.createRef()
 
 	let changePost = () => {
-		props.changepost(newPost.current.value)
+		props.dispatch(ChangePostActionCreator(newPost.current.value))
 	}
 	let addPost = () => {
 		if (newPost.current.value) {
-			props.addpost()
+			props.dispatch(AddPostActionCreator())
 			newPost.current.value = null;
 		}
 	}
@@ -21,8 +22,8 @@ const MyPosts = (props) => {
 	return (<div className={classes.content}>
 		<div className={classes.myname}>My Posts</div>
 		<div>
-			<textarea className={classes.txtinputarea} placeholder="New post" onChange={changePost} value={props.textareav} ref={newPost}></textarea>
-			<button onClick={addPost}>Add post</button>
+			<textarea className={classes.txtinputarea} placeholder="New post" onChange={changePost} value={props.state.newPost} ref={newPost}></textarea>
+			<button className={classes.postbutton} onClick={addPost}>Add post</button>
 		</div>
 		<div className={classes.posts}>{postsElements}</div>
 	</div>)
